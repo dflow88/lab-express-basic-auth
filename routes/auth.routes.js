@@ -15,7 +15,9 @@ router.post('/signup', (req, res) => {
         .then(salt => bcryptjs.hash(password, salt))
         .then(passwordHashed => {
             User.create({ username, password: passwordHashed })
+
                 .then(usuarioCreado => {
+                    console.log(usuarioCreado)
                     res.redirect('/userprofile')
                 }) 
         })
